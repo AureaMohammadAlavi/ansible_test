@@ -1,15 +1,19 @@
 ---
 
-- hosts: web
+- hosts: localhost
   gather_facts: no
   become: true
 
   tasks:
+    # - name: install epel-release package
+    #   package:
+    #     name: 
+    #       - epel-release
+    #     state: present
+
     - name: install epel-release package
-      package:
-        name: 
-          - epel-release
-        state: present
+      shell:
+        cmd: amazon-linux-extras install epel -y
 
     - name: install nginx package
       package:
